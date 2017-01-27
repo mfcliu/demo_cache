@@ -17,6 +17,9 @@ public class CsCache<K, V> {
 	V get(final K key) {
 		try {
 			ValueHolder<V> value = store.get(key);
+			if (null == value) {
+				return null;
+			}
 			return value.value();
 		} catch (StoreAccessException e) {
 			logger.error("store access error : ", e.getMessage());
