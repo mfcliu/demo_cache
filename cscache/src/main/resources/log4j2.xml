@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="Debug" name="CsCache" packages="">
+<Configuration status="Warn" name="CsCache" packages="">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %x [%level] [%thread] [%logger{50}] >>> %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="Warn" includeLocation="false">
+			<AppenderRef ref="Console" />
 
+		</Root>
+	</Loggers>
 </Configuration>
