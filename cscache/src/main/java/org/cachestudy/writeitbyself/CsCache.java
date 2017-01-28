@@ -14,7 +14,7 @@ public class CsCache<K, V> {
 		store = dataStore;
 	}
 
-	V get(final K key) {
+	public V get(final K key) {
 		try {
 			ValueHolder<V> value = store.get(key);
 			if (null == value) {
@@ -28,7 +28,7 @@ public class CsCache<K, V> {
 		}
 	}
 
-	void put(final K key, final V value) {
+	public void put(final K key, final V value) {
 		try {
 			store.put(key, value);
 		} catch (StoreAccessException e) {
@@ -37,7 +37,7 @@ public class CsCache<K, V> {
 		}
 	}
 
-	V remove(K key) {
+	public V remove(K key) {
 		try {
 			ValueHolder<V> value = store.remove(key);
 			return value.value();
@@ -48,7 +48,7 @@ public class CsCache<K, V> {
 		}
 	}
 
-	void clear() {
+	public void clear() {
 		try {
 			store.clear();
 		} catch (StoreAccessException e) {
