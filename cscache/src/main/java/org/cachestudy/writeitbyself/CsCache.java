@@ -40,7 +40,7 @@ public class CsCache<K, V> {
 	public V remove(K key) {
 		try {
 			ValueHolder<V> value = store.remove(key);
-			return value.value();
+			return value != null ? value.value() : null;
 		} catch (StoreAccessException e) {
 			logger.error("store access error : ", e.getMessage());
 			logger.error(e.getStackTrace().toString());
