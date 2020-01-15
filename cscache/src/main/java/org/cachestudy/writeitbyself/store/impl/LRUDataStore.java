@@ -56,7 +56,9 @@ public class LRUDataStore<K, V> implements DataStore<K, V> {
 	@Override
 	public ValueHolder<V> remove(K key) throws StoreAccessException {
 		LRUEntry<K, ValueHolder<?>> entry = getEntry(key);
-		if (entry != null) {
+		if (entry == null) {
+			return null;
+		} else {
 			if (entry.getPre() != null)
 				entry.getPre().setNext(entry.getNext());
 			if (entry.getNext() != null)

@@ -4,6 +4,7 @@ import org.cachestudy.writeitbyself.bean.User;
 import org.cachestudy.writeitbyself.store.impl.BasicDataStore;
 import org.cachestudy.writeitbyself.store.impl.LRUDataStore;
 import org.cachestudy.writeitbyself.store.impl.WeakValueDataStore;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CsCacheTest {
@@ -35,6 +36,9 @@ public class CsCacheTest {
 		String key = "leo";
 		User user = new User();
 		user.setName("leo");
+
+		User oldUser = cache.remove(key);
+		Assert.assertTrue(oldUser == null);
 
 		String key1 = "liu";
 		User user1 = new User();
